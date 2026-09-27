@@ -118,7 +118,7 @@ function reiniciarJuego() {
         derrota.remove();
     }
 
-    botonPista.disabled = true;
+    botonPista.disabled = false;
 
     elegirCantante();
     crearTeclado();
@@ -126,6 +126,7 @@ function reiniciarJuego() {
 }
 
 function mostrarPista() {
+
     if (vidas < 3) {
         const cardPista = document.createElement("div");
         cardPista.classList.add("card-pista");

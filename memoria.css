@@ -1,11 +1,24 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+
     background-image: url("fondo_web_modo_claro.png");
     background-size: cover;
-    background-position: bottom;
+    background-position: center bottom;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body.modo-oscuro {
