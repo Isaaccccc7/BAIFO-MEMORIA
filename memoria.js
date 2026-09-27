@@ -15,7 +15,7 @@ const contadorVidas = document.getElementById('vidas');
 const botonPista = document.querySelector("#pista");
 const mensaje = document.querySelector("#mensaje");
 const reiniciar = document.querySelector("#reiniciar");
-
+const modoOscuro = document.querySelector("#modoOscuro");
 
 function elegirCantante() {
     const posicion = (Math.random() * cantantes.length) | 0;
@@ -90,7 +90,7 @@ function comprobarVictoria() {
 
 function comprobarDerrota() {
     if (vidas === 0) {
-        mensaje.textContent = "Has perdido. Era " + cantante;
+        mensaje.textContent = `Has perdido. Era ${cantante}`;
         mostrarDerrota();
         desactivarTeclado();
     }
@@ -109,9 +109,9 @@ function reiniciarJuego() {
     mensaje.textContent = "";
     palabraOculta = "";
     teclado.textContent = "";
-    const Pista = document.querySelector(".card-pista");
-    if (Pista) {
-        Pista.remove();
+    const pista = document.querySelector(".card-pista");
+    if (pista) {
+        pista.remove();
     }
     const Derrota = document.querySelector(".card-derrota");
     if (Derrota) {
@@ -136,13 +136,37 @@ function mostrarPista() {
 }
 
 function mostrarDerrota() {
-    const Derrota = document.createElement("div");
-    Derrota.classList.add("card-derrota");
-    Derrota.textContent = "El cantante era: " + cantante;
-    document.body.appendChild(Derrota);
+    const derrota = document.createElement("div");
+    derrota.classList.add("card-derrota");
+    derrota.textContent = `El cantante era: ${cantante}`;
+    document.body.appendChild(derrota);
 }
 
+
+function comprobarTecla(evento) {
+
+    const letra = evento.key.toUpperCase();
+
+    if (letras.includes(letra)) {
+
+        const botones = document.querySelectorAll(".letra");
+
+        for (let i = 0; i < botones.length; i++) {
+
+            if (botones[i].textContent === letra && !botones[i].disabled) {
+                comprobarLetra(letra, botones[i]);
+            }
+        }
+    }
+}
+
+
+document.addEventListener("keydown", comprobarTecla);
 reiniciar.addEventListener("click", reiniciarJuego);
 botonPista.addEventListener("click", mostrarPista);
+modoOscuro.addEventListener("click", () => {
+    document.body.classList.toggle("modo-oscuro");
+});
+
 elegirCantante();
 crearTeclado();
