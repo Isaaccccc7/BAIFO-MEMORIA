@@ -18,7 +18,7 @@ const reiniciar = document.querySelector("#reiniciar");
 const modoOscuro = document.querySelector("#modoOscuro");
 
 function elegirCantante() {
-    const posicion = (Math.random() * cantantes.length) | 0;
+    const posicion = Math.floor(Math.random() * cantantes.length);
     cantante = cantantes[posicion];
     posicionCantante = posicion;
     palabraOculta = "";
@@ -113,9 +113,9 @@ function reiniciarJuego() {
     if (pista) {
         pista.remove();
     }
-    const Derrota = document.querySelector(".card-derrota");
-    if (Derrota) {
-        Derrota.remove();
+    const derrota = document.querySelector(".card-derrota");
+    if (derrota) {
+        derrota.remove();
     }
 
     botonPista.disabled = true;

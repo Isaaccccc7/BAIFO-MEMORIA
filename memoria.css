@@ -2,12 +2,53 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 50px;
+    background-image: url("fondo_web_modo_claro.png");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+body.modo-oscuro {
+    background-image: url("fondo_web_modo_oscuro.png");
+    color: white;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
 }
 
 #palabra {
     font-size: 35px;
     letter-spacing: 10px;
     margin: 30px;
+}
+
+#vidas {
+    font-weight: bold;
+}
+
+#teclado {
+    margin: 20px;
+}
+
+.letra {
+    padding: 10px;
+    font-size: 16px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.letra:disabled {
+    background-color: gray;
+    cursor: not-allowed;
 }
 
 input {
@@ -26,4 +67,19 @@ button {
 #mensaje {
     font-size: 20px;
     font-weight: bold;
+}
+
+.card-pista {
+    background-color: yellow;
+    padding: 10px;
+    margin: 20px auto;
+    width: 250px;
+}
+
+.card-derrota {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin: 20px auto;
+    width: 250px;
 }
